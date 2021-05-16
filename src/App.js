@@ -1,10 +1,26 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-function App() {
+import "./index.css";
+import Header from "./components/header";
+import Home from "./components/home";
+import Cart from "./components/cart";
+import Profile from "./components/profile";
+import Footer from "./components/footer";
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>I'm okey.</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/profile" component={Profile} />
+          <Route path="/" component={Home} />
+        </Switch>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
